@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAcessar.Text" xml:space="preserve">
+    <value>Acess</value>
+  </data>
+  <data name="btnBebida.Text" xml:space="preserve">
+    <value>Drinks</value>
+  </data>
+  <data name="btnBuscar.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="btnCancelar.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="btnCliente.Text" xml:space="preserve">
+    <value>Costumers</value>
+  </data>
+  <data name="btnConfigurar.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="btnEndereco.Text" xml:space="preserve">
+    <value>Adresses</value>
+  </data>
+  <data name="btnFuncionario.Text" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="btnIngrediente.Text" xml:space="preserve">
+    <value>Ingredients</value>
+  </data>
+  <data name="btnPedido.Text" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="btnSabor.Text" xml:space="preserve">
+    <value>Flavors</value>
+  </data>
+  <data name="btnSalvar.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnValor.Text" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>1 l</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>1.5 l</value>
+  </data>
+  <data name="label150.Text" xml:space="preserve">
+    <value>150 ml</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>2 l</value>
+  </data>
+  <data name="label350.Text" xml:space="preserve">
+    <value>350 ml</value>
+  </data>
+  <data name="label500.Text" xml:space="preserve">
+    <value>500 ml</value>
+  </data>
+  <data name="label600.Text" xml:space="preserve">
+    <value>600 ml</value>
+  </data>
+  <data name="labelBairro.Text" xml:space="preserve">
+    <value>Neighborhood:</value>
+  </data>
+  <data name="labelCategoria.Text" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="labelCep.Text" xml:space="preserve">
+    <value>Zip Code: </value>
+  </data>
+  <data name="labelCidade.Text" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="labelCNH.Text" xml:space="preserve">
+    <value>DL: </value>
+  </data>
+  <data name="labelComplemento.Text" xml:space="preserve">
+    <value>Complement:</value>
+  </data>
+  <data name="labelCPF.Text" xml:space="preserve">
+    <value>SSN: </value>
+  </data>
+  <data name="labelEmail.Text" xml:space="preserve">
+    <value>email: </value>
+  </data>
+  <data name="labelEntregador.Text" xml:space="preserve">
+    <value>DeliveryMan</value>
+  </data>
+  <data name="labelGrupo.Text" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="labelIngredientes.Text" xml:space="preserve">
+    <value>Ingredients:</value>
+  </data>
+  <data name="labelLogradouro.Text" xml:space="preserve">
+    <value>Public place:</value>
+  </data>
+  <data name="labelMatricula.Text" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="labelNome.Text" xml:space="preserve">
+    <value>Name: </value>
+  </data>
+  <data name="labelNumero.Text" xml:space="preserve">
+    <value>Number:</value>
+  </data>
+  <data name="labelObs.Text" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="labelPais.Text" xml:space="preserve">
+    <value>Country:</value>
+  </data>
+  <data name="labelSenha.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="labelTamanho.Text" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="labelTelefone.Text" xml:space="preserve">
+    <value>Telephone:</value>
+  </data>
+  <data name="labelTipo.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="labelTipoCadastro.Text" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="labelTipoCadastroBebida" xml:space="preserve">
+    <value>Drinks Registration</value>
+  </data>
+  <data name="labelTipoCadastroCliente" xml:space="preserve">
+    <value>Customers Registration</value>
+  </data>
+  <data name="labelTipoCadastroEndereco" xml:space="preserve">
+    <value>Address Registration</value>
+  </data>
+  <data name="labelTipoCadastroFuncionario" xml:space="preserve">
+    <value>Employee Registration</value>
+  </data>
+  <data name="labelTipoCadastroIngrediente" xml:space="preserve">
+    <value>Ingredients Registration</value>
+  </data>
+  <data name="labelTipoCadastroPedido" xml:space="preserve">
+    <value>Orders Registration</value>
+  </data>
+  <data name="labelTipoCadastroSabor" xml:space="preserve">
+    <value>Flavors Registration</value>
+  </data>
+  <data name="labelTipoCadastroValor" xml:space="preserve">
+    <value>Values Registrations</value>
+  </data>
+  <data name="labelUF.Text" xml:space="preserve">
+    <value>State: </value>
+  </data>
+  <data name="labelUsuario.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="labelValidade.Text" xml:space="preserve">
+    <value>Expiration:</value>
+  </data>
+  <data name="labelValor.Text" xml:space="preserve">
+    <value>Price: </value>
+  </data>
+  <data name="labelValorBorda.Text" xml:space="preserve">
+    <value>Additional Crust:</value>
+  </data>
+  <data name="lblIdioma.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="rbAdmin.Text" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="rbAgua.Text" xml:space="preserve">
+    <value>Water</value>
+  </data>
+  <data name="rbAtendente.Text" xml:space="preserve">
+    <value>Attendant</value>
+  </data>
+  <data name="rbCerveja.Text" xml:space="preserve">
+    <value>Beer</value>
+  </data>
+  <data name="rbDoce.Text" xml:space="preserve">
+    <value>Sweet</value>
+  </data>
+  <data name="rbEntregador.Text" xml:space="preserve">
+    <value>DeliveryMan</value>
+  </data>
+  <data name="rbEspecial.Text" xml:space="preserve">
+    <value>Special</value>
+  </data>
+  <data name="rbFamilia.Text" xml:space="preserve">
+    <value>Family</value>
+  </data>
+  <data name="rbGrande.Text" xml:space="preserve">
+    <value>Big</value>
+  </data>
+  <data name="rbMedia.Text" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="rbOutros.Text" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="rbPequena.Text" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="rbRefri.Text" xml:space="preserve">
+    <value>Soda</value>
+  </data>
+  <data name="rbSalgada.Text" xml:space="preserve">
+    <value>Salted</value>
+  </data>
+  <data name="rbSuco.Text" xml:space="preserve">
+    <value>Juice</value>
+  </data>
+  <data name="rbTradicional.Text" xml:space="preserve">
+    <value>Traditional</value>
+  </data>
+  <data name="TelaBebidaFormText" xml:space="preserve">
+    <value>Drink registration</value>
+  </data>
+  <data name="TelaClienteFormText" xml:space="preserve">
+    <value>Customer registration</value>
+  </data>
+  <data name="TelaConfiguracaoFormText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TelaEnderecoFormText" xml:space="preserve">
+    <value>Address Registration</value>
+  </data>
+  <data name="TelaFuncionarioFormText" xml:space="preserve">
+    <value>Employee Registration</value>
+  </data>
+  <data name="TelaIngredienteFormText" xml:space="preserve">
+    <value>Ingredient Registration</value>
+  </data>
+  <data name="TelaLoginFormText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="TelaPrincipalFormText" xml:space="preserve">
+    <value>Zeh's Pizza Place</value>
+  </data>
+  <data name="TelaSaborFormText" xml:space="preserve">
+    <value>Flavor Registration</value>
+  </data>
+  <data name="TelaValorFormText" xml:space="preserve">
+    <value>Pizza Value Registration</value>
+  </data>
+  <data name="txtValidade.CustomFormat" xml:space="preserve">
+    <value>MM/dd/yyyy</value>
+  </data>
+</root>
