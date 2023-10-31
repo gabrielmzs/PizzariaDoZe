@@ -1,4 +1,6 @@
 ﻿using PizzariaDoZe.Compartilhado;
+using PizzariaDoZe.Dominio.ModuloFuncionario;
+using PizzariaDoZe.Dominio.ModuloSabor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +33,17 @@ namespace PizzariaDoZe.ModuloSabor {
 
             };
             return colunas;
+        }
+
+
+        public void AtualizarRegistros(List<Sabor> sabores) {
+            grid.Rows.Clear();
+
+            foreach (Sabor s in sabores) {
+
+
+                grid.Rows.Add(s.Id, s.Nome, s.Categoria, s.Tipo);
+            }
         }
     }
 }

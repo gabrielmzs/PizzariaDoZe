@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
 
@@ -11,9 +12,11 @@ using PizzariaDoZe.Infra.Orm.Compartilhado;
 namespace PizzariaDoZe.Infra.Orm.Migrations
 {
     [DbContext(typeof(PizzariaDoZeDbContext))]
-    partial class PizzariaDoZeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231031132915_TbSabor")]
+    partial class TbSabor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

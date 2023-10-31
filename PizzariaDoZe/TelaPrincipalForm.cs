@@ -4,16 +4,19 @@ using PizzariaDoZe.Aplicacao.ModuloCliente;
 using PizzariaDoZe.Aplicacao.ModuloEndereco;
 using PizzariaDoZe.Aplicacao.ModuloFuncionario;
 using PizzariaDoZe.Aplicacao.ModuloIngrediente;
+using PizzariaDoZe.Aplicacao.ModuloSabor;
 using PizzariaDoZe.Compartilhado;
 using PizzariaDoZe.Dominio.ModuloCliente;
 using PizzariaDoZe.Dominio.ModuloEndereco;
 using PizzariaDoZe.Dominio.ModuloFuncionario;
 using PizzariaDoZe.Dominio.ModuloIngrediente;
+using PizzariaDoZe.Dominio.ModuloSabor;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
 using PizzariaDoZe.Infra.Orm.ModuloCliente;
 using PizzariaDoZe.Infra.Orm.ModuloEndereco;
 using PizzariaDoZe.Infra.Orm.ModuloFuncionario;
 using PizzariaDoZe.Infra.Orm.ModuloIngrediente;
+using PizzariaDoZe.Infra.Orm.ModuloSabor;
 using PizzariaDoZe.ModuloBebida;
 using PizzariaDoZe.ModuloCliente;
 using PizzariaDoZe.ModuloEndereco;
@@ -25,6 +28,7 @@ using System.Configuration;
 using System.Drawing.Text;
 using static PizzariaDoZe.Dominio.ModuloCliente.IValidadorCliente;
 using static PizzariaDoZe.Dominio.ModuloFuncionario.IValidadorFuncionario;
+using static PizzariaDoZe.Dominio.ModuloSabor.IValidadorSabor;
 using static PizzariaDoZe.Program;
 
 namespace PizzariaDoZe {
@@ -109,6 +113,15 @@ namespace PizzariaDoZe {
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioEndereco,repositorioFuncionario, servicoFuncionario));
+
+
+            IRepositorioSabor repositorioSabor = new RepositorioSaborOrm(dbContext);
+
+            ValidadorSabor validadorSabor = new ValidadorSabor();
+
+            ServicoSabor servicoSabor = new ServicoSabor(repositorioSabor, validadorSabor);
+
+            controladores.Add("ControladorSabor", new ControladorSabor(repositorioSabor, repositorioIngrediente, servicoSabor));
         }
 
 
@@ -180,8 +193,7 @@ namespace PizzariaDoZe {
 
         private void btnSabor_Click(object sender, EventArgs e) {
             AbrirTela();
-            controlador = new ControladorSabor();
-            ConfigurarTelaPrincipal(controlador, "Sabor");
+            ConfigurarTelaPrincipal(controladores["ControladorSabor"], "Sabor");
         }
 
         private void btnValor_Click(object sender, EventArgs e) {
