@@ -15,7 +15,9 @@ namespace PizzariaDoZe.Dominio.ModuloSabor {
         public List<Ingrediente> Ingredientes { get; set; }
         public byte[] Foto { get; set; }
 
-        public Sabor() { }
+        public Sabor() {
+            Ingredientes = new();
+        }
 
         public Sabor(string nome, TipoSaborEnum tipo, CategoriaSaborEnum categoria, List<Ingrediente> ingredientes, byte[] foto) {
             Nome = nome;

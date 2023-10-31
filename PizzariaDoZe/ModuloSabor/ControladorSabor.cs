@@ -57,6 +57,8 @@ namespace PizzariaDoZe.ModuloSabor {
             }
         }
 
+        
+
         private void CarregarSabores() {
             List<Sabor> sabores = repositorioSabor.SelecionarTodos();
 
@@ -68,6 +70,8 @@ namespace PizzariaDoZe.ModuloSabor {
             if(tabela== null) {
                 tabela = new TabelaSaborControl();
             }
+
+            CarregarSabores();
             return tabela;
         }
 
