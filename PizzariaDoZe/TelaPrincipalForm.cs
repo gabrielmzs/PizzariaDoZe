@@ -1,22 +1,28 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using PizzariaDoZe.Aplicacao.ModuloBebida;
 using PizzariaDoZe.Aplicacao.ModuloCliente;
 using PizzariaDoZe.Aplicacao.ModuloEndereco;
 using PizzariaDoZe.Aplicacao.ModuloFuncionario;
 using PizzariaDoZe.Aplicacao.ModuloIngrediente;
 using PizzariaDoZe.Aplicacao.ModuloSabor;
+using PizzariaDoZe.Aplicacao.ModuloValor;
 using PizzariaDoZe.Compartilhado;
+using PizzariaDoZe.Dominio.ModuloBebida;
 using PizzariaDoZe.Dominio.ModuloCliente;
 using PizzariaDoZe.Dominio.ModuloEndereco;
 using PizzariaDoZe.Dominio.ModuloFuncionario;
 using PizzariaDoZe.Dominio.ModuloIngrediente;
 using PizzariaDoZe.Dominio.ModuloSabor;
+using PizzariaDoZe.Dominio.ModuloValor;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
+using PizzariaDoZe.Infra.Orm.ModuloBebida;
 using PizzariaDoZe.Infra.Orm.ModuloCliente;
 using PizzariaDoZe.Infra.Orm.ModuloEndereco;
 using PizzariaDoZe.Infra.Orm.ModuloFuncionario;
 using PizzariaDoZe.Infra.Orm.ModuloIngrediente;
 using PizzariaDoZe.Infra.Orm.ModuloSabor;
+using PizzariaDoZe.Infra.Orm.ModuloValor;
 using PizzariaDoZe.ModuloBebida;
 using PizzariaDoZe.ModuloCliente;
 using PizzariaDoZe.ModuloEndereco;
@@ -26,9 +32,11 @@ using PizzariaDoZe.ModuloSabor;
 using PizzariaDoZe.ModuloValor;
 using System.Configuration;
 using System.Drawing.Text;
+using static PizzariaDoZe.Dominio.ModuloBebida.IValidadorBebida;
 using static PizzariaDoZe.Dominio.ModuloCliente.IValidadorCliente;
 using static PizzariaDoZe.Dominio.ModuloFuncionario.IValidadorFuncionario;
 using static PizzariaDoZe.Dominio.ModuloSabor.IValidadorSabor;
+using static PizzariaDoZe.Dominio.ModuloValor.IValidadorValor;
 using static PizzariaDoZe.Program;
 
 namespace PizzariaDoZe {
@@ -122,6 +130,24 @@ namespace PizzariaDoZe {
             ServicoSabor servicoSabor = new ServicoSabor(repositorioSabor, validadorSabor);
 
             controladores.Add("ControladorSabor", new ControladorSabor(repositorioSabor, repositorioIngrediente, servicoSabor));
+
+
+            IRepositorioBebida repositorioBebida = new RepositorioBebidaOrm(dbContext);
+
+            ValidadorBebida validadorBebida = new ValidadorBebida();
+
+            ServicoBebida servicoBebida = new ServicoBebida(repositorioBebida, validadorBebida);
+
+            controladores.Add("ControladorBebida", new ControladorBebida(repositorioBebida,servicoBebida));
+
+
+            IRepositorioValor repositorioValor = new RepositorioValorOrm(dbContext);
+
+            ValidadorValor validadorValor = new ValidadorValor();
+
+            ServicoValor servicoValor = new ServicoValor(repositorioValor, validadorValor);
+
+            controladores.Add("ControladorValor", new ControladorValor(repositorioValor, servicoValor));
         }
 
 
@@ -198,14 +224,13 @@ namespace PizzariaDoZe {
 
         private void btnValor_Click(object sender, EventArgs e) {
             AbrirTela();
-            controlador = new ControladorValor();
-            ConfigurarTelaPrincipal(controlador, "Valor");
+            ConfigurarTelaPrincipal(controladores["ControladorValor"], "Valor");
         }
 
         private void btnBebida_Click(object sender, EventArgs e) {
             AbrirTela();
-            controlador = new ControladorBebida();
-            ConfigurarTelaPrincipal(controlador, "Bebida") ;
+            ConfigurarTelaPrincipal(controladores["ControladorBebida"], "Bebida");
+
         }
 
         private void btnConfigurar_Click(object sender, EventArgs e) {

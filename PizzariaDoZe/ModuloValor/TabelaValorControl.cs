@@ -1,4 +1,6 @@
 ﻿using PizzariaDoZe.Compartilhado;
+using PizzariaDoZe.Dominio.ModuloBebida;
+using PizzariaDoZe.Dominio.ModuloValor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +34,19 @@ namespace PizzariaDoZe.ModuloValor {
 
             };
             return colunas;
+        }
+
+        public Guid ObtemIdSelecionado() {
+            return grid.SelecionarId();
+        }
+
+        public void AtualizarRegistros(List<Valor> valores) {
+            grid.Rows.Clear();
+
+            foreach (Valor v in valores) {
+
+                grid.Rows.Add(v.Id, v.Tamanho, v.Categoria, "R$: " + v.ValorPizza, "R$: " + v.ValorBorda);
+            }
         }
     }
 }

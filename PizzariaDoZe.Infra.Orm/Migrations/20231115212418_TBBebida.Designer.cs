@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
 
@@ -11,9 +12,11 @@ using PizzariaDoZe.Infra.Orm.Compartilhado;
 namespace PizzariaDoZe.Infra.Orm.Migrations
 {
     [DbContext(typeof(PizzariaDoZeDbContext))]
-    partial class PizzariaDoZeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231115212418_TBBebida")]
+    partial class TBBebida
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,28 +222,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TBSabor", (string)null);
-                });
-
-            modelBuilder.Entity("PizzariaDoZe.Dominio.ModuloValor.Valor", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Categoria")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Tamanho")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ValorBorda")
-                        .HasColumnType("decimal");
-
-                    b.Property<decimal>("ValorPizza")
-                        .HasColumnType("decimal");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBValor", (string)null);
                 });
 
             modelBuilder.Entity("IngredienteSabor", b =>

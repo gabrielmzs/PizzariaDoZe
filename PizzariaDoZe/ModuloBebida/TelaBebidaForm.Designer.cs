@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.labelValor = new System.Windows.Forms.Label();
             this.labelCategoria = new System.Windows.Forms.GroupBox();
             this.rbOutros = new System.Windows.Forms.RadioButton();
@@ -39,7 +39,7 @@
             this.label500 = new System.Windows.Forms.RadioButton();
             this.label350 = new System.Windows.Forms.RadioButton();
             this.label150 = new System.Windows.Forms.RadioButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.labelNome = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -47,12 +47,12 @@
             this.labelTamanho.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtValor
             // 
-            this.textBox1.Location = new System.Drawing.Point(326, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 23);
-            this.textBox1.TabIndex = 2;
+            this.txtValor.Location = new System.Drawing.Point(326, 25);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(149, 23);
+            this.txtValor.TabIndex = 2;
             // 
             // labelValor
             // 
@@ -213,12 +213,12 @@
             this.label150.Text = "150 ml";
             this.label150.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // txtNome
             // 
-            this.textBox6.Location = new System.Drawing.Point(69, 25);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 23);
-            this.textBox6.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(69, 25);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(200, 23);
+            this.txtNome.TabIndex = 1;
             // 
             // labelNome
             // 
@@ -250,17 +250,18 @@
             this.btnSalvar.TabIndex = 99;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // TelaBebidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 383);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtValor);
             this.Controls.Add(this.labelValor);
             this.Controls.Add(this.labelCategoria);
             this.Controls.Add(this.labelTamanho);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
@@ -277,7 +278,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtValor;
         private Label labelValor;
         private GroupBox labelCategoria;
         private RadioButton rbOutros;
@@ -293,7 +294,7 @@
         private RadioButton label500;
         private RadioButton label350;
         private RadioButton label150;
-        private TextBox textBox6;
+        private TextBox txtNome;
         private Label labelNome;
         private Button btnCancelar;
         private Button btnSalvar;

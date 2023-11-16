@@ -1,13 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32;
-using PizzariaDoZe.Dominio.ModuloFuncionario;
 using PizzariaDoZe.Dominio.ModuloSabor;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzariaDoZe.Infra.Orm.ModuloSabor {
     public class RepositorioSaborOrm : RepositorioBaseORM<Sabor>, IRepositorioSabor {

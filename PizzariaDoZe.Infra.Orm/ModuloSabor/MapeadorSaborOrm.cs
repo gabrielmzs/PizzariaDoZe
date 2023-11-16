@@ -19,6 +19,8 @@ namespace PizzariaDoZe.Infra.Orm.ModuloSabor {
             builder.Property(c => c.Categoria).HasConversion<int>().IsRequired();
             builder.Property(c => c.Tipo).HasConversion<int>().IsRequired();
 
+            builder.Property(c => c.Foto).HasColumnType("varbinary(max)").IsRequired();
+
 
             builder.HasMany(c => c.Ingredientes).WithMany().UsingEntity(x => x.ToTable("TBSabor_TBIngrediente"));
         }
