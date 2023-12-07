@@ -124,8 +124,17 @@
   <data name="badge_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\badge_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="boxBebidas.Text" xml:space="preserve">
+    <value>Ajuste a quantidade das Bebidas</value>
+  </data>
   <data name="btnAcessar.Text" xml:space="preserve">
     <value>Acessar</value>
+  </data>
+  <data name="btnAddBebida.Text" xml:space="preserve">
+    <value>Adicionar Bebida</value>
+  </data>
+  <data name="btnAdicionarPizza.Text" xml:space="preserve">
+    <value>Adicionar Pizza</value>
   </data>
   <data name="btnBebida.Text" xml:space="preserve">
     <value>Bebidas</value>
@@ -142,6 +151,9 @@
   <data name="btnConfigurar.Text" xml:space="preserve">
     <value>Configurações</value>
   </data>
+  <data name="btnEncerrarPedido.Text" xml:space="preserve">
+    <value>Encerrar Pedido</value>
+  </data>
   <data name="btnEndereco.Text" xml:space="preserve">
     <value>Endereços</value>
   </data>
@@ -151,8 +163,14 @@
   <data name="btnIngrediente.Text" xml:space="preserve">
     <value>Ingredientes</value>
   </data>
+  <data name="btnIniciar.Text" xml:space="preserve">
+    <value>Iniciar Pedido</value>
+  </data>
   <data name="btnPedido.Text" xml:space="preserve">
     <value>Pedidos</value>
+  </data>
+  <data name="btnPesquisar.Text" xml:space="preserve">
+    <value>Pesquisar</value>
   </data>
   <data name="btnSabor.Text" xml:space="preserve">
     <value>Sabores</value>
@@ -177,6 +195,9 @@
   </data>
   <data name="extension_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\extension_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="groupBoxPizza.Text" xml:space="preserve">
+    <value>Adicionar Pizza</value>
   </data>
   <data name="group_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\group_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +229,15 @@
   <data name="labelBairro.Text" xml:space="preserve">
     <value>Bairro:</value>
   </data>
+  <data name="labelBebida.Text" xml:space="preserve">
+    <value>Bebida:</value>
+  </data>
+  <data name="labelBebidas.Text" xml:space="preserve">
+    <value>Bebidas: </value>
+  </data>
+  <data name="labelBorda.Text" xml:space="preserve">
+    <value>Borda</value>
+  </data>
   <data name="labelCategoria.Text" xml:space="preserve">
     <value>Categoria</value>
   </data>
@@ -216,6 +246,9 @@
   </data>
   <data name="labelCidade.Text" xml:space="preserve">
     <value>Cidade: </value>
+  </data>
+  <data name="labelCliente.Text" xml:space="preserve">
+    <value>Cliente</value>
   </data>
   <data name="labelCNH.Text" xml:space="preserve">
     <value>CNH:</value>
@@ -229,14 +262,23 @@
   <data name="labelEmail.Text" xml:space="preserve">
     <value>email: </value>
   </data>
+  <data name="labelEntrega.Text" xml:space="preserve">
+    <value>Entrega:</value>
+  </data>
   <data name="labelEntregador.Text" xml:space="preserve">
     <value>Entregador</value>
+  </data>
+  <data name="labelFiltro.Text" xml:space="preserve">
+    <value>Selecione um Filtro:</value>
   </data>
   <data name="labelGrupo.Text" xml:space="preserve">
     <value>Grupo</value>
   </data>
   <data name="labelIngredientes.Text" xml:space="preserve">
     <value>Ingredientes:</value>
+  </data>
+  <data name="labelListaBebidas.Text" xml:space="preserve">
+    <value>Lista de Bebidas:</value>
   </data>
   <data name="labelLogradouro.Text" xml:space="preserve">
     <value>Logradouro: </value>
@@ -253,8 +295,20 @@
   <data name="labelObs.Text" xml:space="preserve">
     <value>Observações: </value>
   </data>
+  <data name="labelPagamento.Text" xml:space="preserve">
+    <value>Forma de Pagamento: </value>
+  </data>
   <data name="labelPais.Text" xml:space="preserve">
     <value>País: </value>
+  </data>
+  <data name="labelPizzas.Text" xml:space="preserve">
+    <value>Pizzas: </value>
+  </data>
+  <data name="labelQuantidade.Text" xml:space="preserve">
+    <value>Quantidade: </value>
+  </data>
+  <data name="labelRemoverIngredientes.Text" xml:space="preserve">
+    <value>Selecione os ingredientes para remover:</value>
   </data>
   <data name="labelSenha.Text" xml:space="preserve">
     <value>Senha: </value>
@@ -310,6 +364,12 @@
   <data name="labelValorBorda.Text" xml:space="preserve">
     <value>Valor Adicional de Borda:</value>
   </data>
+  <data name="labelValorDaPizza.Text" xml:space="preserve">
+    <value>Valor da Pizza: R$</value>
+  </data>
+  <data name="labelValorFinal.Text" xml:space="preserve">
+    <value>Valor Total do Pedido: R$</value>
+  </data>
   <data name="lblIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
   </data>
@@ -331,11 +391,23 @@
   <data name="rbAtendente.Text" xml:space="preserve">
     <value>Atendente</value>
   </data>
+  <data name="rbCartao.Text" xml:space="preserve">
+    <value>Cartão</value>
+  </data>
   <data name="rbCerveja.Text" xml:space="preserve">
     <value>Cerveja</value>
   </data>
+  <data name="rbCPF.Text" xml:space="preserve">
+    <value>CPF</value>
+  </data>
+  <data name="rbDinheiro.Text" xml:space="preserve">
+    <value>Dinheiro</value>
+  </data>
   <data name="rbDoce.Text" xml:space="preserve">
     <value>Doce</value>
+  </data>
+  <data name="rbEntrega.Text" xml:space="preserve">
+    <value>Entrega</value>
   </data>
   <data name="rbEntregador.Text" xml:space="preserve">
     <value>Entregador</value>
@@ -352,14 +424,23 @@
   <data name="rbMedia.Text" xml:space="preserve">
     <value>Média</value>
   </data>
+  <data name="rbNome.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
   <data name="rbOutros.Text" xml:space="preserve">
     <value>Outros</value>
   </data>
   <data name="rbPequena.Text" xml:space="preserve">
     <value>Pequena</value>
   </data>
+  <data name="rbPix.Text" xml:space="preserve">
+    <value>Pix</value>
+  </data>
   <data name="rbRefri.Text" xml:space="preserve">
     <value>Refrigerante</value>
+  </data>
+  <data name="rbRetirada.Text" xml:space="preserve">
+    <value>Retirada</value>
   </data>
   <data name="rbSalgada.Text" xml:space="preserve">
     <value>Salgada</value>
@@ -367,11 +448,26 @@
   <data name="rbSuco.Text" xml:space="preserve">
     <value>Suco</value>
   </data>
+  <data name="rbTelefone.Text" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
   <data name="rbTradicional.Text" xml:space="preserve">
     <value>Tradicional</value>
   </data>
   <data name="request_page_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\request_page_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tabBebida.Text" xml:space="preserve">
+    <value>Bebidas</value>
+  </data>
+  <data name="tabCliente.Text" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="tabFinalizar.Text" xml:space="preserve">
+    <value>Finalizar Pedido</value>
+  </data>
+  <data name="tabPizza.Text" xml:space="preserve">
+    <value>Pizzas</value>
   </data>
   <data name="TelaBebidaFormText" xml:space="preserve">
     <value>Cadastro de Bebida</value>
@@ -393,6 +489,9 @@
   </data>
   <data name="TelaLoginFormText" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="TelaPedidoFormText" xml:space="preserve">
+    <value>Cadastro de Pedidos</value>
   </data>
   <data name="TelaPrincipalFormText" xml:space="preserve">
     <value>Pizzaria do Zé</value>

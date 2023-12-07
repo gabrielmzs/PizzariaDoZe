@@ -44,5 +44,15 @@ namespace PizzariaDoZe.Dominio.ModuloSabor {
             Ingredientes = registro.Ingredientes;
             Foto = registro.Foto;
         }
+
+        public override string ToString() {
+
+            string letra;
+
+            if (this.Categoria == CategoriaSaborEnum.Tradicional) letra = "T";
+            else letra = "E";
+
+            return letra + " - " + Nome;
+        }
     }
 }

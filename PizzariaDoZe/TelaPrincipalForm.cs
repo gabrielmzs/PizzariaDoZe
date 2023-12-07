@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using PedidoriaDoZe.Aplicacao.ModuloPedio;
+using PedidoriaDoZe.Infra.Orm.ModuloPedido;
 using PizzariaDoZe.Aplicacao.ModuloBebida;
 using PizzariaDoZe.Aplicacao.ModuloCliente;
 using PizzariaDoZe.Aplicacao.ModuloEndereco;
 using PizzariaDoZe.Aplicacao.ModuloFuncionario;
 using PizzariaDoZe.Aplicacao.ModuloIngrediente;
+using PizzariaDoZe.Aplicacao.ModuloPizza;
 using PizzariaDoZe.Aplicacao.ModuloSabor;
 using PizzariaDoZe.Aplicacao.ModuloValor;
 using PizzariaDoZe.Compartilhado;
@@ -13,6 +16,8 @@ using PizzariaDoZe.Dominio.ModuloCliente;
 using PizzariaDoZe.Dominio.ModuloEndereco;
 using PizzariaDoZe.Dominio.ModuloFuncionario;
 using PizzariaDoZe.Dominio.ModuloIngrediente;
+using PizzariaDoZe.Dominio.ModuloPedido;
+using PizzariaDoZe.Dominio.ModuloPizza;
 using PizzariaDoZe.Dominio.ModuloSabor;
 using PizzariaDoZe.Dominio.ModuloValor;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
@@ -21,6 +26,7 @@ using PizzariaDoZe.Infra.Orm.ModuloCliente;
 using PizzariaDoZe.Infra.Orm.ModuloEndereco;
 using PizzariaDoZe.Infra.Orm.ModuloFuncionario;
 using PizzariaDoZe.Infra.Orm.ModuloIngrediente;
+using PizzariaDoZe.Infra.Orm.ModuloPizza;
 using PizzariaDoZe.Infra.Orm.ModuloSabor;
 using PizzariaDoZe.Infra.Orm.ModuloValor;
 using PizzariaDoZe.ModuloBebida;
@@ -28,13 +34,16 @@ using PizzariaDoZe.ModuloCliente;
 using PizzariaDoZe.ModuloEndereco;
 using PizzariaDoZe.ModuloFuncionario;
 using PizzariaDoZe.ModuloIngrediente;
+using PizzariaDoZe.ModuloPedido;
 using PizzariaDoZe.ModuloSabor;
 using PizzariaDoZe.ModuloValor;
 using System.Configuration;
 using System.Drawing.Text;
+using static PedidoriaDoZe.Dominio.ModuloPedido.IValidadorPedido;
 using static PizzariaDoZe.Dominio.ModuloBebida.IValidadorBebida;
 using static PizzariaDoZe.Dominio.ModuloCliente.IValidadorCliente;
 using static PizzariaDoZe.Dominio.ModuloFuncionario.IValidadorFuncionario;
+using static PizzariaDoZe.Dominio.ModuloPizza.IValidadorPizza;
 using static PizzariaDoZe.Dominio.ModuloSabor.IValidadorSabor;
 using static PizzariaDoZe.Dominio.ModuloValor.IValidadorValor;
 using static PizzariaDoZe.Program;
@@ -47,11 +56,11 @@ namespace PizzariaDoZe {
 
         private Dictionary<string, ControladorBase> controladores;
 
-        
+
         public TelaPrincipalForm() {
-            
-          if (telalogin.ShowDialog() == DialogResult.OK) {
-             InitializeComponent();
+
+            if (telalogin.ShowDialog() == DialogResult.OK) {
+                InitializeComponent();
                 Instancia = this;
                 Funcoes.AjustaResourcesControl(this);
 
@@ -59,7 +68,7 @@ namespace PizzariaDoZe {
 
                 ConfigurarControladores();
             }
-            
+
         }
 
         public static TelaPrincipalForm Instancia {
@@ -111,7 +120,7 @@ namespace PizzariaDoZe {
 
             ServicoCliente servicoCliente = new ServicoCliente(repositorioCliente, validadorCliente);
 
-            controladores.Add("ControladorCliente", new ControladorCliente(repositorioCliente, servicoCliente,repositorioEndereco));
+            controladores.Add("ControladorCliente", new ControladorCliente(repositorioCliente, servicoCliente, repositorioEndereco));
 
 
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
@@ -120,7 +129,7 @@ namespace PizzariaDoZe {
 
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
-            controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioEndereco,repositorioFuncionario, servicoFuncionario));
+            controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioEndereco, repositorioFuncionario, servicoFuncionario));
 
 
             IRepositorioSabor repositorioSabor = new RepositorioSaborOrm(dbContext);
@@ -138,7 +147,7 @@ namespace PizzariaDoZe {
 
             ServicoBebida servicoBebida = new ServicoBebida(repositorioBebida, validadorBebida);
 
-            controladores.Add("ControladorBebida", new ControladorBebida(repositorioBebida,servicoBebida));
+            controladores.Add("ControladorBebida", new ControladorBebida(repositorioBebida, servicoBebida));
 
 
             IRepositorioValor repositorioValor = new RepositorioValorOrm(dbContext);
@@ -148,9 +157,25 @@ namespace PizzariaDoZe {
             ServicoValor servicoValor = new ServicoValor(repositorioValor, validadorValor);
 
             controladores.Add("ControladorValor", new ControladorValor(repositorioValor, servicoValor));
+
+
+            IRepositorioPizza repositorioPizza = new RepositorioPizzaOrm(dbContext);
+
+            ValidadorPizza validadorPizza = new ValidadorPizza();
+
+            ServicoPizza servicoPizza = new ServicoPizza(repositorioPizza, validadorPizza);
+
+
+            IRepositorioPedido repositorioPedido = new RepositorioPedidoOrm(dbContext);
+
+            ValidadorPedido validadorPedido = new ValidadorPedido();
+
+            ServicoPedido servicoPedido = new ServicoPedido(repositorioPedido, validadorPedido);
+
+            controladores.Add("ControladorPedido", new ControladorPedido(repositorioPedido, servicoPedido, repositorioCliente, repositorioPizza, repositorioBebida, repositorioSabor,repositorioValor,servicoPizza));
+
+
         }
-
-
 
 
         /// <summary>
@@ -159,7 +184,7 @@ namespace PizzariaDoZe {
         /// 
         private void ConfigurarTelaPrincipal(ControladorBase controlador, string tipo) {
 
-            this.labelTipoCadastro.Text = Properties.Resources.ResourceManager.GetString("labelTipoCadastro"+tipo);
+            this.labelTipoCadastro.Text = Properties.Resources.ResourceManager.GetString("labelTipoCadastro" + tipo);
 
             this.controlador = controlador;
 
@@ -184,15 +209,15 @@ namespace PizzariaDoZe {
 
         private void btnEndereco_Click(object sender, EventArgs e) {
             AbrirTela();
-            
+
 
             ConfigurarTelaPrincipal(controladores["ControladorEndereco"], "Endereco");
         }
         private void btnFuncionario_Click(object sender, EventArgs e) {
             AbrirTela();
-         
+
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"], "Funcionario");
-       
+
         }
 
         private void btnInserir_Click(object sender, EventArgs e) {
@@ -206,15 +231,15 @@ namespace PizzariaDoZe {
 
         private void btnCliente_Click(object sender, EventArgs e) {
             AbrirTela();
-            
+
             ConfigurarTelaPrincipal(controladores["ControladorCliente"], "Cliente");
         }
 
-        
+
 
         private void btnIngrediente_Click(object sender, EventArgs e) {
             AbrirTela();
-            ConfigurarTelaPrincipal(controladores["ControladorIngrediente"],"Ingrediente");
+            ConfigurarTelaPrincipal(controladores["ControladorIngrediente"], "Ingrediente");
         }
 
         private void btnSabor_Click(object sender, EventArgs e) {
@@ -231,6 +256,10 @@ namespace PizzariaDoZe {
             AbrirTela();
             ConfigurarTelaPrincipal(controladores["ControladorBebida"], "Bebida");
 
+        }
+        private void btnPedido_Click(object sender, EventArgs e) {
+            AbrirTela();
+            ConfigurarTelaPrincipal(controladores["ControladorPedido"], "Pedido");
         }
 
         private void btnConfigurar_Click(object sender, EventArgs e) {
@@ -254,29 +283,26 @@ namespace PizzariaDoZe {
 
             if (auxIdiomaRegiao == "pt-BR") {
                 result = MessageBox.Show("Deseja realmente sair da aplicação?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            }
-            else if (auxIdiomaRegiao == "en-US") {
+            } else if (auxIdiomaRegiao == "en-US") {
                 result = MessageBox.Show("Do you really want to quit the application??", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             } else {
                 result = MessageBox.Show("¿Realmente quieres salir de la aplicación?", "Confirmación", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             }
 
             if (result == DialogResult.Yes) {
-               
-            } 
-            else if (result == DialogResult.Cancel) {
+
+            } else if (result == DialogResult.Cancel) {
                 e.Cancel = true;
-            } 
-            else {
+            } else {
                 this.WindowState = FormWindowState.Minimized;
-                e.Cancel = true; 
+                e.Cancel = true;
             }
         }
 
-        
+
 
         private void contextMenuStripPrincipal_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
-           
+
         }
 
         private void AbrirTela() {
@@ -299,10 +325,10 @@ namespace PizzariaDoZe {
         }
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e) {
-           MessageBox.Show("Desenvolvido por Gabriel Menezes", "Pizzaria do Zé - V 1.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Desenvolvido por Gabriel Menezes", "Pizzaria do Zé - V 1.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        
+
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
@@ -311,6 +337,7 @@ namespace PizzariaDoZe {
         private void btnExcluir_Click(object sender, EventArgs e) {
             controlador.Excluir();
         }
+
 
 
 

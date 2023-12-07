@@ -21,6 +21,17 @@ namespace PizzariaDoZe.Infra.Orm.ModuloCliente {
 
             return registros.FirstOrDefault(x => x.Nome == nome);
         }
+        public List<Cliente> SelecionarListaPorNome(string nome) {
+            return registros.Where(x => x.Nome.Contains(nome)).Include(x => x.Endereco).ToList();
+        }
+
+        public List<Cliente> SelecionarPorCPF(string cpf) {
+            return registros.Where(x => x.Cpf == cpf).Include(x => x.Endereco).ToList();
+        }
+
+        public List<Cliente> SelecionarPorTelefone(string tel) {
+            return registros.Where(x => x.Telefone == tel).Include(x => x.Endereco).ToList();
+        }
 
         public List<Cliente> SelecionarTodos() {
             return registros.Include(x => x.Endereco).ToList();

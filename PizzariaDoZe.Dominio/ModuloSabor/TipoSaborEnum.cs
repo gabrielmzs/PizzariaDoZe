@@ -9,6 +9,6 @@ namespace PizzariaDoZe.Dominio.ModuloSabor {
 
         Doce = 1, 
         Salgada = 2, 
-        
+       
     }
 }

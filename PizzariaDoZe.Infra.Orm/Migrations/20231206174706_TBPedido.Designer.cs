@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
 
@@ -11,9 +12,11 @@ using PizzariaDoZe.Infra.Orm.Compartilhado;
 namespace PizzariaDoZe.Infra.Orm.Migrations
 {
     [DbContext(typeof(PizzariaDoZeDbContext))]
-    partial class PizzariaDoZeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231206174706_TBPedido")]
+    partial class TBPedido
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,7 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ValorTotal")
+                    b.Property<decimal>("Valor")
                         .HasColumnType("decimal");
 
                     b.HasKey("BebidasId", "PedidoId");
@@ -287,8 +290,8 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Borda")
-                        .HasColumnType("int");
+                    b.Property<bool>("Borda")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Tamanho")
                         .HasColumnType("int");

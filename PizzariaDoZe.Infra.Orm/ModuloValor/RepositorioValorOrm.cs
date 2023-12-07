@@ -11,5 +11,9 @@ namespace PizzariaDoZe.Infra.Orm.ModuloValor {
         public List<Valor> SelecionarTodos() {
             return registros.ToList();
         }
+
+        public Valor SelecionarValorEspecifico(TamanhoPizzaEnum tamanho, CategoriaPizzaEnum categoria) {
+            return registros.FirstOrDefault(v => v.Tamanho == tamanho && v.Categoria == categoria);
+        }
     }
 }

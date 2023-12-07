@@ -14,6 +14,8 @@ namespace PizzariaDoZe.Infra.Orm.ModuloBebida {
 
             builder.Property(c => c.Tipo).HasConversion<int>().IsRequired();
             builder.Property(c => c.Tamanho).HasConversion<int>().IsRequired();
+            builder.Ignore(c => c.ValorTotal);
+            builder.Ignore(c => c.Quantidade);
 
         }
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzariaDoZe.Infra.Orm.Compartilhado;
 
@@ -11,9 +12,11 @@ using PizzariaDoZe.Infra.Orm.Compartilhado;
 namespace PizzariaDoZe.Infra.Orm.Migrations
 {
     [DbContext(typeof(PizzariaDoZeDbContext))]
-    partial class PizzariaDoZeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231206170606_TBPizza")]
+    partial class TBPizza
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,27 +24,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("BebidaPedido", b =>
-                {
-                    b.Property<Guid>("BebidasId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PedidoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ValorTotal")
-                        .HasColumnType("decimal");
-
-                    b.HasKey("BebidasId", "PedidoId");
-
-                    b.HasIndex("PedidoId");
-
-                    b.ToTable("TBPedido_TBBebida", (string)null);
-                });
 
             modelBuilder.Entity("IngredienteSabor", b =>
                 {
@@ -56,21 +38,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.HasIndex("SaborId");
 
                     b.ToTable("TBSabor_TBIngrediente", (string)null);
-                });
-
-            modelBuilder.Entity("PedidoPizza", b =>
-                {
-                    b.Property<Guid>("PedidoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PizzasId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("PedidoId", "PizzasId");
-
-                    b.HasIndex("PizzasId");
-
-                    b.ToTable("TBPedido_TBPizza", (string)null);
                 });
 
             modelBuilder.Entity("PizzaSabor", b =>
@@ -248,47 +215,13 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.ToTable("TBIngrediente", (string)null);
                 });
 
-            modelBuilder.Entity("PizzariaDoZe.Dominio.ModuloPedido.Pedido", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClienteId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Entrega")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Observacao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Pagamento")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ValorTotal")
-                        .HasColumnType("decimal");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.ToTable("TBPedido", (string)null);
-                });
-
             modelBuilder.Entity("PizzariaDoZe.Dominio.ModuloPizza.Pizza", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Borda")
-                        .HasColumnType("int");
+                    b.Property<bool>("Borda")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Tamanho")
                         .HasColumnType("int");
@@ -347,21 +280,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.ToTable("TBValor", (string)null);
                 });
 
-            modelBuilder.Entity("BebidaPedido", b =>
-                {
-                    b.HasOne("PizzariaDoZe.Dominio.ModuloBebida.Bebida", null)
-                        .WithMany()
-                        .HasForeignKey("BebidasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PizzariaDoZe.Dominio.ModuloPedido.Pedido", null)
-                        .WithMany()
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("IngredienteSabor", b =>
                 {
                     b.HasOne("PizzariaDoZe.Dominio.ModuloIngrediente.Ingrediente", null)
@@ -373,21 +291,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                     b.HasOne("PizzariaDoZe.Dominio.ModuloSabor.Sabor", null)
                         .WithMany()
                         .HasForeignKey("SaborId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PedidoPizza", b =>
-                {
-                    b.HasOne("PizzariaDoZe.Dominio.ModuloPedido.Pedido", null)
-                        .WithMany()
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PizzariaDoZe.Dominio.ModuloPizza.Pizza", null)
-                        .WithMany()
-                        .HasForeignKey("PizzasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -429,18 +332,6 @@ namespace PizzariaDoZe.Infra.Orm.Migrations
                         .HasConstraintName("FK_TBFuncionario_TBEndereco");
 
                     b.Navigation("Endereco");
-                });
-
-            modelBuilder.Entity("PizzariaDoZe.Dominio.ModuloPedido.Pedido", b =>
-                {
-                    b.HasOne("PizzariaDoZe.Dominio.ModuloCliente.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
-                        .HasConstraintName("FK_TBPedido_TBCliente");
-
-                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }
