@@ -63,12 +63,13 @@
             txtBebida = new ComboBox();
             btnAddBebida = new Button();
             tabFinalizar = new TabPage();
+            btnSalvar = new Button();
+            lbPizza = new ListBox();
             labelValorPedido = new Label();
             labelValorFinal = new Label();
             labelBebidas = new Label();
             listBoxBebidaFinal = new ListBox();
             labelPizzas = new Label();
-            listBoxPizzaFinal = new ListBox();
             labelComplemento = new Label();
             txtComplemento = new TextBox();
             txtNumero = new TextBox();
@@ -90,6 +91,8 @@
             labelEntrega = new GroupBox();
             rbRetirada = new RadioButton();
             rbEntrega = new RadioButton();
+            btnRemover = new Button();
+            btnRemoverBebida = new Button();
             tabControl.SuspendLayout();
             tabCliente.SuspendLayout();
             labelFiltro.SuspendLayout();
@@ -218,6 +221,7 @@
             // tabPizza
             // 
             tabPizza.BackColor = Color.Black;
+            tabPizza.Controls.Add(btnRemover);
             tabPizza.Controls.Add(listaPizzas);
             tabPizza.Controls.Add(groupBoxPizza);
             tabPizza.Controls.Add(txtCliente);
@@ -418,6 +422,7 @@
             // 
             // tabBebida
             // 
+            tabBebida.BackColor = SystemColors.ControlText;
             tabBebida.Controls.Add(boxBebidas);
             tabBebida.Location = new Point(4, 24);
             tabBebida.Name = "tabBebida";
@@ -425,10 +430,11 @@
             tabBebida.Size = new Size(1192, 741);
             tabBebida.TabIndex = 2;
             tabBebida.Text = "Bebidas";
-            tabBebida.UseVisualStyleBackColor = true;
             // 
             // boxBebidas
             // 
+            boxBebidas.BackColor = SystemColors.ControlText;
+            boxBebidas.Controls.Add(btnRemoverBebida);
             boxBebidas.Controls.Add(btnEncerrarPedido);
             boxBebidas.Controls.Add(labelListaBebidas);
             boxBebidas.Controls.Add(labelQuantidade);
@@ -437,6 +443,7 @@
             boxBebidas.Controls.Add(listBoxBebidas);
             boxBebidas.Controls.Add(txtBebida);
             boxBebidas.Controls.Add(btnAddBebida);
+            boxBebidas.ForeColor = SystemColors.Control;
             boxBebidas.Location = new Point(21, 22);
             boxBebidas.Name = "boxBebidas";
             boxBebidas.Size = new Size(1142, 692);
@@ -458,7 +465,7 @@
             // labelListaBebidas
             // 
             labelListaBebidas.AutoSize = true;
-            labelListaBebidas.ForeColor = SystemColors.ControlText;
+            labelListaBebidas.ForeColor = SystemColors.Control;
             labelListaBebidas.Location = new Point(32, 125);
             labelListaBebidas.Name = "labelListaBebidas";
             labelListaBebidas.Size = new Size(94, 15);
@@ -468,7 +475,7 @@
             // labelQuantidade
             // 
             labelQuantidade.AutoSize = true;
-            labelQuantidade.ForeColor = SystemColors.ControlText;
+            labelQuantidade.ForeColor = SystemColors.Control;
             labelQuantidade.Location = new Point(581, 55);
             labelQuantidade.Name = "labelQuantidade";
             labelQuantidade.Size = new Size(75, 15);
@@ -478,7 +485,7 @@
             // labelBebida
             // 
             labelBebida.AutoSize = true;
-            labelBebida.ForeColor = SystemColors.ControlText;
+            labelBebida.ForeColor = SystemColors.Control;
             labelBebida.Location = new Point(32, 55);
             labelBebida.Name = "labelBebida";
             labelBebida.Size = new Size(49, 15);
@@ -522,12 +529,14 @@
             // 
             // tabFinalizar
             // 
+            tabFinalizar.BackColor = SystemColors.ControlText;
+            tabFinalizar.Controls.Add(btnSalvar);
+            tabFinalizar.Controls.Add(lbPizza);
             tabFinalizar.Controls.Add(labelValorPedido);
             tabFinalizar.Controls.Add(labelValorFinal);
             tabFinalizar.Controls.Add(labelBebidas);
             tabFinalizar.Controls.Add(listBoxBebidaFinal);
             tabFinalizar.Controls.Add(labelPizzas);
-            tabFinalizar.Controls.Add(listBoxPizzaFinal);
             tabFinalizar.Controls.Add(labelComplemento);
             tabFinalizar.Controls.Add(txtComplemento);
             tabFinalizar.Controls.Add(txtNumero);
@@ -551,12 +560,33 @@
             tabFinalizar.Size = new Size(1192, 741);
             tabFinalizar.TabIndex = 3;
             tabFinalizar.Text = "Finalizar Pedido";
-            tabFinalizar.UseVisualStyleBackColor = true;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSalvar.DialogResult = DialogResult.OK;
+            btnSalvar.Location = new Point(1053, 659);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(94, 60);
+            btnSalvar.TabIndex = 112;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
+            // 
+            // lbPizza
+            // 
+            lbPizza.FormattingEnabled = true;
+            lbPizza.ItemHeight = 15;
+            lbPizza.Location = new Point(26, 213);
+            lbPizza.Name = "lbPizza";
+            lbPizza.Size = new Size(1121, 124);
+            lbPizza.TabIndex = 111;
             // 
             // labelValorPedido
             // 
             labelValorPedido.AutoSize = true;
             labelValorPedido.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            labelValorPedido.ForeColor = SystemColors.Control;
             labelValorPedido.Location = new Point(368, 659);
             labelValorPedido.Name = "labelValorPedido";
             labelValorPedido.Size = new Size(104, 37);
@@ -567,6 +597,7 @@
             // 
             labelValorFinal.AutoSize = true;
             labelValorFinal.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            labelValorFinal.ForeColor = SystemColors.Control;
             labelValorFinal.Location = new Point(26, 659);
             labelValorFinal.Name = "labelValorFinal";
             labelValorFinal.Size = new Size(349, 37);
@@ -576,6 +607,7 @@
             // labelBebidas
             // 
             labelBebidas.AutoSize = true;
+            labelBebidas.ForeColor = SystemColors.Control;
             labelBebidas.Location = new Point(26, 476);
             labelBebidas.Name = "labelBebidas";
             labelBebidas.Size = new Size(48, 15);
@@ -594,25 +626,17 @@
             // labelPizzas
             // 
             labelPizzas.AutoSize = true;
+            labelPizzas.ForeColor = SystemColors.Control;
             labelPizzas.Location = new Point(26, 195);
             labelPizzas.Name = "labelPizzas";
             labelPizzas.Size = new Size(44, 15);
             labelPizzas.TabIndex = 106;
             labelPizzas.Text = "Pizzas: ";
             // 
-            // listBoxPizzaFinal
-            // 
-            listBoxPizzaFinal.BackColor = SystemColors.ControlLightLight;
-            listBoxPizzaFinal.FormattingEnabled = true;
-            listBoxPizzaFinal.ItemHeight = 15;
-            listBoxPizzaFinal.Location = new Point(26, 213);
-            listBoxPizzaFinal.Name = "listBoxPizzaFinal";
-            listBoxPizzaFinal.Size = new Size(1121, 124);
-            listBoxPizzaFinal.TabIndex = 105;
-            // 
             // labelComplemento
             // 
             labelComplemento.AutoSize = true;
+            labelComplemento.ForeColor = SystemColors.Control;
             labelComplemento.Location = new Point(853, 106);
             labelComplemento.Name = "labelComplemento";
             labelComplemento.Size = new Size(87, 15);
@@ -638,6 +662,7 @@
             // labelNumero
             // 
             labelNumero.AutoSize = true;
+            labelNumero.ForeColor = SystemColors.Control;
             labelNumero.Location = new Point(805, 147);
             labelNumero.Name = "labelNumero";
             labelNumero.Size = new Size(57, 15);
@@ -656,6 +681,7 @@
             // labelTelefone
             // 
             labelTelefone.AutoSize = true;
+            labelTelefone.ForeColor = SystemColors.Control;
             labelTelefone.Location = new Point(681, 106);
             labelTelefone.Name = "labelTelefone";
             labelTelefone.Size = new Size(57, 15);
@@ -674,6 +700,7 @@
             // labelCPF
             // 
             labelCPF.AutoSize = true;
+            labelCPF.ForeColor = SystemColors.Control;
             labelCPF.Location = new Point(532, 103);
             labelCPF.Name = "labelCPF";
             labelCPF.Size = new Size(34, 15);
@@ -691,6 +718,7 @@
             // labelNome
             // 
             labelNome.AutoSize = true;
+            labelNome.ForeColor = SystemColors.Control;
             labelNome.Location = new Point(26, 103);
             labelNome.Name = "labelNome";
             labelNome.Size = new Size(46, 15);
@@ -700,6 +728,7 @@
             // labelBairro
             // 
             labelBairro.AutoSize = true;
+            labelBairro.ForeColor = SystemColors.Control;
             labelBairro.Location = new Point(555, 147);
             labelBairro.Name = "labelBairro";
             labelBairro.Size = new Size(41, 15);
@@ -725,6 +754,7 @@
             // labelLogradouro
             // 
             labelLogradouro.AutoSize = true;
+            labelLogradouro.ForeColor = SystemColors.Control;
             labelLogradouro.Location = new Point(26, 147);
             labelLogradouro.Name = "labelLogradouro";
             labelLogradouro.Size = new Size(75, 15);
@@ -736,6 +766,7 @@
             labelPagamento.Controls.Add(rbPix);
             labelPagamento.Controls.Add(rbCartao);
             labelPagamento.Controls.Add(rbDinheiro);
+            labelPagamento.ForeColor = SystemColors.Control;
             labelPagamento.Location = new Point(509, 20);
             labelPagamento.Name = "labelPagamento";
             labelPagamento.Size = new Size(638, 55);
@@ -779,6 +810,7 @@
             // 
             labelEntrega.Controls.Add(rbRetirada);
             labelEntrega.Controls.Add(rbEntrega);
+            labelEntrega.ForeColor = SystemColors.Control;
             labelEntrega.Location = new Point(26, 20);
             labelEntrega.Name = "labelEntrega";
             labelEntrega.Size = new Size(269, 54);
@@ -809,6 +841,26 @@
             rbEntrega.Text = "Entrega";
             rbEntrega.UseVisualStyleBackColor = true;
             rbEntrega.CheckedChanged += rbRetirada_CheckedChanged;
+            // 
+            // btnRemover
+            // 
+            btnRemover.ForeColor = SystemColors.ControlText;
+            btnRemover.Location = new Point(988, 595);
+            btnRemover.Name = "btnRemover";
+            btnRemover.Size = new Size(150, 48);
+            btnRemover.TabIndex = 14;
+            btnRemover.Text = "Remover Pizza";
+            btnRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoverBebida
+            // 
+            btnRemoverBebida.ForeColor = SystemColors.MenuText;
+            btnRemoverBebida.Location = new Point(843, 325);
+            btnRemoverBebida.Name = "btnRemoverBebida";
+            btnRemoverBebida.Size = new Size(161, 43);
+            btnRemoverBebida.TabIndex = 9;
+            btnRemoverBebida.Text = "Remover Bebida";
+            btnRemoverBebida.UseVisualStyleBackColor = true;
             // 
             // TelaPedidoForm
             // 
@@ -907,8 +959,11 @@
         private Label labelBebidas;
         private ListBox listBoxBebidaFinal;
         private Label labelPizzas;
-        private ListBox listBoxPizzaFinal;
         private Label labelValorFinal;
         private Label labelValorPedido;
+        private ListBox lbPizza;
+        private Button btnSalvar;
+        private Button btnRemover;
+        private Button btnRemoverBebida;
     }
 }

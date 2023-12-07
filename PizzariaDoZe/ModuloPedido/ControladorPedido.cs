@@ -111,7 +111,7 @@ namespace PizzariaDoZe.ModuloPedido {
         private void CarregarPedidoesPizza() {
             List<Pedido> pedidoes = repositorioPedido.SelecionarTodos();
 
-            //tabela.AtualizarRegistros(pedidoes);
+            tabela.AtualizarRegistros(pedidoes);
 
         }
 

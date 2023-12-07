@@ -8,7 +8,7 @@ namespace PedidoriaDoZe.Infra.Orm.ModuloPedido {
         }
 
         public List<Pedido> SelecionarTodos() {
-            return registros.Include(x => x.Pizzas).Include(x => x.Bebidas).ToList();
+            return registros.Include(x => x.Pizzas).Include(x => x.Bebidas).Include(x => x.Cliente).Include(x => x.Cliente.Endereco).ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PizzariaDoZe.Aplicacao.ModuloPizza;
+﻿using FluentResults;
+using PizzariaDoZe.Aplicacao.ModuloPizza;
 using PizzariaDoZe.Compartilhado;
 using PizzariaDoZe.Dominio.ModuloBebida;
 using PizzariaDoZe.Dominio.ModuloCliente;
@@ -200,9 +201,9 @@ namespace PizzariaDoZe.ModuloPedido {
                 listaIngredientes3.Items.Clear();
             } else if (tamanhoPizza == TamanhoPizzaEnum.Média) {
                 listaSabores2.Enabled = true;
-                listaSabores3.Enabled = true;
+                listaSabores3.Enabled = false;
 
-                listaIngredientes2.Enabled = false;
+                listaIngredientes2.Enabled = true;
                 listaIngredientes3.Enabled = false;
                 listaIngredientes3.Items.Clear();
             } else {
@@ -294,7 +295,10 @@ namespace PizzariaDoZe.ModuloPedido {
         }
 
         private void btnEncerrarPedido_Click(object sender, EventArgs e) {
+
+            tabControl.SelectedIndex = 3;
             CarregarInformacoes();
+
         }
 
         private void CarregarInformacoes() {
@@ -312,7 +316,7 @@ namespace PizzariaDoZe.ModuloPedido {
                 ValorFinal += b.ValorTotal;
             }
 
-            listBoxPizzaFinal.Items.Clear();
+
 
             foreach (var p in listaPizzasPedido) {
                 ValorFinal += p.Valor;
@@ -324,17 +328,19 @@ namespace PizzariaDoZe.ModuloPedido {
         }
 
         private void CarregarPizzasEPedidos() {
+
+
+            lbPizza.Items.Clear();
+
+            foreach (var p in listaPizzasPedido) {
+                lbPizza.Items.Add(p);
+            }
             listBoxBebidaFinal.Items.Clear();
 
             foreach (var b in listaBebidasPedido) {
                 listBoxBebidaFinal.Items.Add(b);
             }
 
-            //listBoxPizzaFinal.Items.Clear();
-
-            foreach (var p in listaPizzasPedido) {
-                listBoxPizzaFinal.Items.Add(p);
-            }
 
         }
 
@@ -354,6 +360,35 @@ namespace PizzariaDoZe.ModuloPedido {
             if (rbRetirada.Checked) tipoEntrega = TipoEntregaEnum.Retirada;
             else tipoEntrega = TipoEntregaEnum.Entrega;
             CalcularValorFinal();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e) {
+            this.pedido = new Pedido();
+            this.pedido = ObterPedido();
+
+            Result resultado = onGravarRegistro(pedido);
+
+            if (resultado.IsFailed) {
+                string erro = resultado.Errors[0].Message;
+
+                //TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                DialogResult = DialogResult.None;
+            }
+        }
+
+        private Pedido ObterPedido() {
+            pedido.Bebidas = listaBebidasPedido;
+            pedido.Cliente = cliente;
+            pedido.Pizzas = listaPizzasPedido;
+            pedido.Data = DateTime.Now;
+            pedido.ValorTotal = ValorFinal;
+            pedido.Entrega = tipoEntrega;
+            pedido.Pagamento = FormaPagamentoEnum.Dinheiro;
+            pedido.Observacao = " ";
+            pedido.Status = StatusPedidoEnum.Confirmado;
+
+            return pedido;
         }
     }
 }

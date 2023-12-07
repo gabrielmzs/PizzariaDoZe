@@ -1,14 +1,5 @@
 ﻿using PizzariaDoZe.Compartilhado;
 using PizzariaDoZe.Dominio.ModuloCliente;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PizzariaDoZe.ModuloCliente {
     public partial class TabelaClienteControl : UserControl {
